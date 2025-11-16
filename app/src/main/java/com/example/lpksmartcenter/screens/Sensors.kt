@@ -6,18 +6,26 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.lpksmartcenter.ui.theme.LPKSmartCenterTheme
 import com.example.lpksmartcenter.R
+import com.example.lpksmartcenter.ViewModel.SensorsViewModel
 import com.example.lpksmartcenter.ui.theme.SenorsCard
 
 @Composable
-fun SensorsScreen(modifier: Modifier = Modifier) {
+fun SensorsScreen(
+    modifier: Modifier = Modifier,
+    viewModel: SensorsViewModel = viewModel()
+) {
 
+    val sensorData by viewModel.sensorData.collectAsState()
 
     LazyColumn(
         modifier = modifier
@@ -31,14 +39,14 @@ fun SensorsScreen(modifier: Modifier = Modifier) {
         item {
             SenorsCard(
                 text = "Temperatura:",
-                text1 = "22°",
+                text1 = sensorData.temperature,
                 icon = painterResource(R.drawable.outline_thermometer_24),
             )
         }
         item {
             SenorsCard(
-                text = "Druga karta",
-                text1 = "22°C",
+                text = "Wilgotność",
+                text1 = sensorData.humidity,
                 icon = painterResource(R.drawable.outline_humidity_percentage_24),
             )
         }
