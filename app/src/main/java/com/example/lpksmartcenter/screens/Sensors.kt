@@ -1,0 +1,106 @@
+package com.example.lpksmartcenter.screens
+
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.PaddingValues
+//import androidx.compose.foundation.layout.R
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import com.example.lpksmartcenter.ui.theme.LPKSmartCenterTheme
+import com.example.lpksmartcenter.R
+import com.example.lpksmartcenter.ui.theme.SenorsCard
+
+@Composable
+fun SensorsScreen(modifier: Modifier = Modifier) {
+
+
+    LazyColumn(
+        modifier = modifier
+            .fillMaxSize(),
+        //.padding(top = 110.dp),
+        contentPadding = PaddingValues(50.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.spacedBy(16.dp),
+    ) {
+
+        item {
+            SenorsCard(
+                text = "Temperatura:",
+                text1 = "22°",
+                icon = painterResource(R.drawable.outline_thermometer_24),
+            )
+        }
+        item {
+            SenorsCard(
+                text = "Druga karta",
+                text1 = "22°C",
+                icon = painterResource(R.drawable.outline_humidity_percentage_24),
+            )
+        }
+        item {
+            SenorsCard(
+                text = "Trzecia karta",
+                text1 = "22°C",
+                icon = painterResource(R.drawable.outline_thermometer_24)
+            )
+        }
+
+        item {
+            SenorsCard(
+                text = "Trzecia karta",
+                text1 = "22°C",
+                icon = painterResource(R.drawable.outline_thermometer_24)
+            )
+        }
+        item {
+            SenorsCard(
+                text = "Trzecia karta",
+                text1 = "22°C",
+                icon = painterResource(R.drawable.outline_thermometer_24)
+            )
+        }
+        item {
+            SenorsCard(
+                text = "Trzecia karta",
+                text1 = "22°C",
+                icon = painterResource(R.drawable.outline_thermometer_24)
+            )
+        }
+        item {
+            SenorsCard(
+                text = "Trzecia karta",
+                text1 = "22°C",
+                icon = painterResource(R.drawable.outline_thermometer_24)
+            )
+        }
+        item {
+            SenorsCard(
+                text = "Trzecia karta",
+                text1 = "22°C",
+                icon = painterResource(R.drawable.outline_thermometer_24)
+            )
+        }
+        item {
+            SenorsCard(
+                text = "Trzecia karta",
+                text1 = "22°C",
+                icon = painterResource(R.drawable.outline_thermometer_24)
+            )
+        }
+
+    }
+}
+
+
+@Preview(showBackground = true)
+@Composable
+fun SongsScreenPreview() {
+    LPKSmartCenterTheme {
+        SensorsScreen()
+    }
+}
