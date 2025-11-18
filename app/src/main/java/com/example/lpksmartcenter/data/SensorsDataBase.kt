@@ -8,10 +8,10 @@ import com.google.firebase.database.ValueEventListener
 import kotlin.collections.getValue
 
 
-data class SensorData(
+/*data class SensorData(
     val temperature: String = "0°C",
     val humidity: String = "0%",
-)
+)*/
 
 
 

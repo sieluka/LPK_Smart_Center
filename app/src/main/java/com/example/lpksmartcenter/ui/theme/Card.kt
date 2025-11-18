@@ -89,12 +89,13 @@ fun SenorsCard(
 fun DeviceCard(
     text: String,
     icon: Painter,
-    //deviceKey: String = "",
+    checked: Boolean,
+    onCheckedChange: (Boolean) -> Unit,
     modifier: Modifier = Modifier
 ) {
 
     //val sensorsDB = remember { SensorsDataBase() }
-    var checked by remember { mutableStateOf(false) }
+    //var checked by remember { mutableStateOf(false) }
     val statusText = if (checked) stringResource(R.string.on) else stringResource(R.string.off)
 
     // Uniwersalny odczyt dla dowolnego urządzenia
@@ -159,7 +160,7 @@ fun DeviceCard(
             }*/
             SwitchMinimalExample(
                 checked = checked,
-                onCheckedChange = {checked = it}
+                onCheckedChange = onCheckedChange
             )
         }
     }
@@ -179,7 +180,7 @@ fun PlaylistScreenPreview() {
     }
 }
 
-@Preview(showBackground = true)
+/*@Preview(showBackground = true)
 @Composable
 fun PlaylistScreenPreview1() {
     LPKSmartCenterTheme {
@@ -188,4 +189,4 @@ fun PlaylistScreenPreview1() {
             icon = painterResource(R.drawable.outline_humidity_percentage_24)
         )
     }
-}
+}*/

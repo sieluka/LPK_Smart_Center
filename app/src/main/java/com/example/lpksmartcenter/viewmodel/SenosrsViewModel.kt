@@ -1,7 +1,6 @@
 package com.example.lpksmartcenter.viewmodel
 
 import androidx.lifecycle.ViewModel
-import com.example.lpksmartcenter.data.SensorData
 import com.example.lpksmartcenter.data.SensorsDataBase
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
