@@ -15,6 +15,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -28,7 +29,10 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.lpksmartcenter.R
+import com.example.lpksmartcenter.data.SensorsDataBase
+import com.example.lpksmartcenter.viewmodel.SensorsViewModel
 
 
 @Composable
@@ -85,11 +89,23 @@ fun SenorsCard(
 fun DeviceCard(
     text: String,
     icon: Painter,
+    //deviceKey: String = "",
     modifier: Modifier = Modifier
 ) {
 
+    //val sensorsDB = remember { SensorsDataBase() }
     var checked by remember { mutableStateOf(false) }
     val statusText = if (checked) stringResource(R.string.on) else stringResource(R.string.off)
+
+    // Uniwersalny odczyt dla dowolnego urządzenia
+    /*LaunchedEffect(deviceKey) {
+        if (deviceKey.isNotEmpty()) {
+            sensorsDB.readDeviceState(deviceKey) { state ->
+                checked = state
+            }
+        }
+    }*/
+
 
     ElevatedCard(
         colors = CardDefaults.cardColors(
@@ -102,7 +118,7 @@ fun DeviceCard(
         modifier = modifier
             .size(width = 350.dp, height = 80.dp)
     ) {
-        Row (
+        Row(
             modifier = Modifier
                 .fillMaxSize(),
             verticalAlignment = Alignment.CenterVertically,
@@ -132,14 +148,23 @@ fun DeviceCard(
                 )
             }
 
+            /*if (deviceKey.isNotEmpty()) {
+                SwitchMinimalExample(
+                    checked = checked,
+                    onCheckedChange = { newState ->
+                        checked = newState
+                        sensorsDB.writeDeviceState(deviceKey, newState)
+                    }
+                )
+            }*/
             SwitchMinimalExample(
                 checked = checked,
-                onCheckedChange = { checked = it },
+                onCheckedChange = {checked = it}
             )
-
         }
     }
 }
+
 
 
 
