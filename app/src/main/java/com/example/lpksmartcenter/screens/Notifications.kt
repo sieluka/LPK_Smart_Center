@@ -22,7 +22,7 @@ fun NotificationsScreen(modifier: Modifier = Modifier) {
 @Preview(showBackground = true)
 @Composable
 fun NotificationsScreenPreview() {
-    LPKSmartCenterTheme() {
-        DevicesScreen()
+    LPKSmartCenterTheme {
+        NotificationsScreen()
     }
 }

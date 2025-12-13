@@ -180,13 +180,15 @@ fun PlaylistScreenPreview() {
     }
 }
 
-/*@Preview(showBackground = true)
+@Preview(showBackground = true)
 @Composable
 fun PlaylistScreenPreview1() {
     LPKSmartCenterTheme {
         DeviceCard(
             text = "Druga Karta",
-            icon = painterResource(R.drawable.outline_humidity_percentage_24)
+            icon = painterResource(R.drawable.outline_humidity_percentage_24),
+            checked = false,
+            onCheckedChange = {}
         )
     }
-}*/
+}
