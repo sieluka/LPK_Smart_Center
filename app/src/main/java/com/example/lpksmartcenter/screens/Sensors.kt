@@ -122,8 +122,8 @@ fun SensorsScreen(
         items(sensorsData.entries.toList()) { (key, value) ->
 
             val displayValue = when (key){
-                "DHT11-temperatura" -> "$value°C"
-                "DHT11-wilgotnosc" -> "$value%"
+                "Temperatura" -> "$value°C"
+                "Wilgotnosc" -> "$value%"
                 "Deszcz" -> when (value) {
                     "1" -> "Pada"
                     "0" -> "Nie pada"
@@ -134,8 +134,8 @@ fun SensorsScreen(
                     "0" -> "Nie wykryto ruchu"
                     else -> value
                 }
-                "GAS" -> when (value) {
-                    "0" -> "WYKRUTO GAZ"
+                "Gaz-Dym" -> when (value) {
+                    "0" -> "WYKRYTO GAZ"
                     "1" -> "Nie wykryto gazu"
                     else -> value
                 }
@@ -154,8 +154,8 @@ fun SensorsScreen(
             }
 
             val displayIcon = when (key) {
-                "DHT11-temperatura" -> painterResource(R.drawable.outline_thermometer_24)
-                "DHT11-wilgotnosc" -> painterResource(R.drawable.outline_humidity_percentage_24)
+                "Temperatura" -> painterResource(R.drawable.outline_thermometer_24)
+                "Wilgotnosc" -> painterResource(R.drawable.outline_humidity_percentage_24)
                 "GAS" -> painterResource(R.drawable.outline_gas_meter_24)
                 "Deszcz" -> painterResource(R.drawable.outline_rainy_24)
                 "Kontaktrony" -> painterResource(R.drawable.outline_sensor_window_24)
