@@ -135,15 +135,22 @@ fun SensorsScreen(
                     else -> value
                 }
                 "GAS" -> when (value) {
-                    "0" -> "Wykryto GAZ"
-                    "1" -> "Nie wykryto GAZU"
+                    "0" -> "WYKRUTO GAZ"
+                    "1" -> "Nie wykryto gazu"
                     else -> value
                 }
-                else -> when (value) {
+                "Kontaktrony" -> when (value) {
                     "true" -> "Okno jest otwarte"
                     "false" -> "Okno jest zamknięte"
                     else -> value
                 }
+                "Wiatrak" -> when (value) {
+                    "true" -> "Wiatrak jest włączony"
+                    "false" -> "Wiatrak jest wyłączony"
+                    else -> value
+
+                }
+                else -> value
             }
 
             val displayIcon = when (key) {
@@ -153,6 +160,11 @@ fun SensorsScreen(
                 "Deszcz" -> painterResource(R.drawable.outline_rainy_24)
                 "Kontaktrony" -> painterResource(R.drawable.outline_sensor_window_24)
                 "Ruch" -> painterResource(R.drawable.outline_directions_walk_24)
+                "Wiatrak" -> when (value) {
+                    "true" -> painterResource(R.drawable.outline_mode_fan_24)
+                    "false" -> painterResource(R.drawable.outline_mode_fan_off_24)
+                    else ->  painterResource(R.drawable.outline_mode_fan_24)
+                }
                 else -> painterResource(R.drawable.outline_thermometer_24)
             }
 

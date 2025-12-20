@@ -55,7 +55,6 @@ fun DevicesScreen(
                 else
                     painterResource(R.drawable.outline_mode_fan_off_24)
                 "Brama" -> painterResource(R.drawable.outline_gate_24)
-
                 else -> painterResource(R.drawable.outline_thermometer_24)
             }
 
