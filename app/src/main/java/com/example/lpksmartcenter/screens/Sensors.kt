@@ -109,7 +109,8 @@ fun SensorsScreen(
 fun SensorsScreen(
     modifier: Modifier = Modifier,
     viewModel: SensorsViewModel = viewModel()
-) {
+)
+{
     val sensorsData by viewModel.sensorsData.collectAsState()
 
     LazyColumn(
@@ -119,10 +120,47 @@ fun SensorsScreen(
         verticalArrangement = Arrangement.spacedBy(16.dp),
     ) {
         items(sensorsData.entries.toList()) { (key, value) ->
+
+            val displayValue = when (key){
+                "DHT11-temperatura" -> "$value°C"
+                "DHT11-wilgotnosc" -> "$value%"
+                "Deszcz" -> when (value) {
+                    "1" -> "Pada"
+                    "0" -> "Nie pada"
+                    else -> value
+                }
+                "Ruch" -> when (value) {
+                    "1" -> "Wykryto ruch"
+                    "0" -> "Nie wykryto ruchu"
+                    else -> value
+                }
+                "GAS" -> when (value) {
+                    "0" -> "Wykryto GAZ"
+                    "1" -> "Nie wykryto GAZU"
+                    else -> value
+                }
+                else -> when (value) {
+                    "true" -> "Okno jest otwarte"
+                    "false" -> "Okno jest zamknięte"
+                    else -> value
+                }
+            }
+
+            val displayIcon = when (key) {
+                "DHT11-temperatura" -> painterResource(R.drawable.outline_thermometer_24)
+                "DHT11-wilgotnosc" -> painterResource(R.drawable.outline_humidity_percentage_24)
+                "GAS" -> painterResource(R.drawable.outline_gas_meter_24)
+                "Deszcz" -> painterResource(R.drawable.outline_rainy_24)
+                "Kontaktrony" -> painterResource(R.drawable.outline_sensor_window_24)
+                "Ruch" -> painterResource(R.drawable.outline_directions_walk_24)
+                else -> painterResource(R.drawable.outline_thermometer_24)
+            }
+
+
             SenorsCard(
                 text = key,
-                text1 = value,
-                icon = painterResource(R.drawable.outline_thermometer_24),
+                text1 = displayValue,
+                icon = displayIcon,
             )
         }
     }

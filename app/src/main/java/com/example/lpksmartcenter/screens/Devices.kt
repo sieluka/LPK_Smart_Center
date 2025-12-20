@@ -48,9 +48,20 @@ fun DevicesScreen(
 
 
         items(devicesData.entries.toList()) { (key, isOn) ->
+
+            val displayIcon = when (key) {
+                "wiatrak_stan" -> if (isOn)
+                    painterResource(R.drawable.outline_mode_fan_24)
+                else
+                    painterResource(R.drawable.outline_mode_fan_off_24)
+                "Brama" -> painterResource(R.drawable.outline_gate_24)
+
+                else -> painterResource(R.drawable.outline_thermometer_24)
+            }
+
             DeviceCard(
                 text = key,
-                icon = painterResource(R.drawable.outline_humidity_percentage_24),
+                icon = displayIcon,
                 checked = isOn,
                 onCheckedChange = { newState ->
                      viewModel.updateDeviceState(key, newState)

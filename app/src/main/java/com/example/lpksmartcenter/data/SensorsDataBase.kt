@@ -51,7 +51,7 @@ class SensorsDataBase {
                     child.key?.let { key ->
                         val value = child.value
                         // Filtruj tylko wartości liczbowe (czujniki), pomijając Boolean (urządzenia)
-                        if (value is Number || value is String) {
+                        if (value is Number || value is String || value is Boolean) {
                             sensorsMap[key] = value.toString()
                         }
                     }
@@ -66,6 +66,29 @@ class SensorsDataBase {
         })
     }
 
+    /*fun readSensorsData(onDataChanged: (Map<String, Any>) -> Unit) {
+        database.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val sensorsMap = mutableMapOf<String, Any>()
+
+                snapshot.children.forEach { child ->
+                    child.key?.let { key ->
+                        val value = child.value
+                        // Filtruj tylko wartości liczbowe (czujniki), pomijając Boolean (urządzenia)
+                        if (value is Number || value is String || value is Boolean) {
+                            sensorsMap[key] = value
+                        }
+                    }
+                }
+
+                onDataChanged(sensorsMap)
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                // Obsłuż błąd
+            }
+        })
+    }*/
 
     /*fun readDeviceState(deviceKey: String, onStateChanged: (Boolean) -> Unit) {
         database.addValueEventListener(object : ValueEventListener {
@@ -78,7 +101,7 @@ class SensorsDataBase {
                 // Obsłuż błąd
             }
         })
-    }
+    }*/
 
     // Uniwersalna funkcja do zapisu stanu dowolnego urządzenia
     fun writeDeviceState(deviceKey: String, isOn: Boolean, onComplete: (Boolean) -> Unit = {}) {
@@ -89,7 +112,7 @@ class SensorsDataBase {
             .addOnFailureListener {
                 onComplete(false)
             }
-    }*/
+    }
 
 
 }

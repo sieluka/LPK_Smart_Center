@@ -15,7 +15,7 @@ fun NotificationsScreen(modifier: Modifier = Modifier) {
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
     ) {
-        Text("Album Screen")
+        Text("Notifications Screen")
     }
 }
 
