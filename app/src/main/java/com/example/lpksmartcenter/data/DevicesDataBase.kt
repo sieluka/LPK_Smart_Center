@@ -19,10 +19,8 @@ class DevicesDataBase {
 
                 snapshot.children.forEach { child ->
                     child.key?.let { key ->
-                        val value = child.value
-                        // Filtruj tylko wartości typu Boolean (urządzenia)
-                        if (value is Boolean) {
-                            devicesMap[key] = value
+                        child.value?.let{ value ->
+                            devicesMap[key] = value as Boolean
                         }
                     }
                 }
