@@ -16,22 +16,18 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.lpksmartcenter.R
 import com.example.lpksmartcenter.ui.theme.DeviceCard
-import com.example.lpksmartcenter.ui.theme.FanCard
-import com.example.lpksmartcenter.ui.theme.LPKSmartCenterTheme
 import com.example.lpksmartcenter.viewmodel.DevicesViewModel
 import kotlin.collections.component1
 import kotlin.collections.component2
 
 @Composable
-fun DevicesScreen(
+fun FanScreen(
     modifier: Modifier = Modifier,
-    onNavigateToFan: () -> Unit = {},
     viewModel: DevicesViewModel = viewModel()
-) {
-
+){
     val devicesData by viewModel.devicesData.collectAsState()
     val filteredDevices = devicesData.filter { (key, _) ->
-        key == "Brama"
+        key == "Tryb_manualny_wiatraka" || key == "wiatrak_on_manual"
     }
 
     LazyColumn(
@@ -40,12 +36,11 @@ fun DevicesScreen(
         contentPadding = PaddingValues(50.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(16.dp),
-    ) {
-
+    ){
         items(filteredDevices.entries.toList()) { (key, isOn) ->
 
             val displayIcon = when (key) {
-                "Brama" -> painterResource(R.drawable.outline_gate_24)
+                "Tryb_manualny_wiatraka" -> painterResource(R.drawable.outline_rotate_auto_24)
                 else -> painterResource(R.drawable.outline_thermometer_24)
             }
 
@@ -58,22 +53,11 @@ fun DevicesScreen(
                 }
             )
         }
-
-        item {
-            FanCard(
-                text = "Wiatrak",
-                icon = painterResource(R.drawable.outline_mode_fan_24),
-                onClick = onNavigateToFan
-            )
-        }
     }
 }
 
-
-@Preview(showBackground = true)
+@Preview
 @Composable
-fun AlbumScreenPreview() {
-    LPKSmartCenterTheme() {
-        DevicesScreen()
-    }
+fun FanScreenPreview() {
+    FanScreen()
 }
