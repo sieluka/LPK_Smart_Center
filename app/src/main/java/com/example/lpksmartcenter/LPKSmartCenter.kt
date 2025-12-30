@@ -3,10 +3,7 @@ package com.example.lpksmartcenter
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.AccountBox
 import androidx.compose.material.icons.filled.Build
-import androidx.compose.material.icons.filled.Favorite
-import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.Icon
@@ -21,12 +18,11 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewScreenSizes
 import com.example.lpksmartcenter.screens.DevicesScreen
 import com.example.lpksmartcenter.screens.NotificationsScreen
 import com.example.lpksmartcenter.screens.SensorsScreen
-import com.example.lpksmartcenter.ui.theme.LPKSmartCenterTheme
+import com.example.lpksmartcenter.screens.FanScreen
 
 enum class AppDestinations(
     val label: String,
@@ -41,6 +37,7 @@ enum class AppDestinations(
 @Composable
 fun LPKSmartCenterApp() {
     var currentDestination by rememberSaveable { mutableStateOf(AppDestinations.SENSORS) }
+    var showFanScreen by rememberSaveable { mutableStateOf(false) }
 
     NavigationSuiteScaffold(
         navigationSuiteItems = {
@@ -53,8 +50,11 @@ fun LPKSmartCenterApp() {
                         )
                     },
                     label = { Text(it.label) },
-                    selected = it == currentDestination,
-                    onClick = { currentDestination = it }
+                    selected = it == currentDestination && !showFanScreen,
+                    onClick = {
+                        currentDestination = it
+                        showFanScreen = false
+                    }
                 )
             }
         }
@@ -66,10 +66,30 @@ fun LPKSmartCenterApp() {
             contentColor = MaterialTheme.colorScheme.onBackground,
         )
         { innerPadding ->
-            when (currentDestination) {
-                AppDestinations.SENSORS -> SensorsScreen(modifier = Modifier.padding(innerPadding))
-                AppDestinations.DEVICES -> DevicesScreen(modifier = Modifier.padding(innerPadding))
-                AppDestinations.NOTIFICATIONS -> NotificationsScreen(modifier = Modifier.padding(innerPadding))
+            if (showFanScreen) {
+                FanScreen(modifier = Modifier.padding(innerPadding))
+            } else {
+                when (currentDestination) {
+                    AppDestinations.SENSORS -> SensorsScreen(
+                        modifier = Modifier.padding(
+                            innerPadding
+                        )
+                    )
+
+                    AppDestinations.DEVICES -> DevicesScreen(
+                        modifier = Modifier
+                            .padding(innerPadding),
+                        onNavigateToFan = {
+                            showFanScreen = true
+                        }
+                    )
+
+                    AppDestinations.NOTIFICATIONS -> NotificationsScreen(
+                        modifier = Modifier.padding(
+                            innerPadding
+                        )
+                    )
+                }
             }
         }
     }
