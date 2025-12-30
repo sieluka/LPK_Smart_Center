@@ -2,7 +2,6 @@ package com.example.lpksmartcenter.screens
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues
-//import androidx.compose.foundation.layout.R
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -19,91 +18,6 @@ import com.example.lpksmartcenter.ui.theme.LPKSmartCenterTheme
 import com.example.lpksmartcenter.R
 import com.example.lpksmartcenter.viewmodel.SensorsViewModel
 import com.example.lpksmartcenter.ui.theme.SenorsCard
-
-/*@Composable
-fun SensorsScreen(
-    modifier: Modifier = Modifier,
-    viewModel: SensorsViewModel = viewModel()
-) {
-
-    val sensorData by viewModel.sensorData.collectAsState()
-
-    LazyColumn(
-        modifier = modifier
-            .fillMaxSize(),
-        //.padding(top = 110.dp),
-        contentPadding = PaddingValues(50.dp),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.spacedBy(16.dp),
-    ) {
-
-        item {
-            SenorsCard(
-                text = "Temperatura:",
-                text1 = sensorData.temperature,
-                icon = painterResource(R.drawable.outline_thermometer_24),
-            )
-        }
-        item {
-            SenorsCard(
-                text = "Wilgotność",
-                text1 = sensorData.humidity,
-                icon = painterResource(R.drawable.outline_humidity_percentage_24),
-            )
-        }
-        item {
-            SenorsCard(
-                text = "Trzecia karta",
-                text1 = "22°C",
-                icon = painterResource(R.drawable.outline_thermometer_24)
-            )
-        }
-
-        item {
-            SenorsCard(
-                text = "Trzecia karta",
-                text1 = "22°C",
-                icon = painterResource(R.drawable.outline_thermometer_24)
-            )
-        }
-        item {
-            SenorsCard(
-                text = "Trzecia karta",
-                text1 = "22°C",
-                icon = painterResource(R.drawable.outline_thermometer_24)
-            )
-        }
-        item {
-            SenorsCard(
-                text = "Trzecia karta",
-                text1 = "22°C",
-                icon = painterResource(R.drawable.outline_thermometer_24)
-            )
-        }
-        item {
-            SenorsCard(
-                text = "Trzecia karta",
-                text1 = "22°C",
-                icon = painterResource(R.drawable.outline_thermometer_24)
-            )
-        }
-        item {
-            SenorsCard(
-                text = "Trzecia karta",
-                text1 = "22°C",
-                icon = painterResource(R.drawable.outline_thermometer_24)
-            )
-        }
-        item {
-            SenorsCard(
-                text = "Trzecia karta",
-                text1 = "22°C",
-                icon = painterResource(R.drawable.outline_thermometer_24)
-            )
-        }
-
-    }
-}*/
 
 @Composable
 fun SensorsScreen(
@@ -125,28 +39,28 @@ fun SensorsScreen(
                 "Temperatura" -> "$value°C"
                 "Wilgotnosc" -> "$value%"
                 "Deszcz" -> when (value) {
-                    "1" -> "Pada"
-                    "0" -> "Nie pada"
+                    1, 1L, 1.0 -> "Pada"
+                    0, 0L, 0.0 -> "Nie pada"
                     else -> value
                 }
                 "Ruch" -> when (value) {
-                    "1" -> "Wykryto ruch"
-                    "0" -> "Nie wykryto ruchu"
+                    1, 1L, 1.0 -> "Wykryto ruch"
+                    0, 0L, 0.0 -> "Nie wykryto ruchu"
                     else -> value
                 }
                 "Gaz-Dym" -> when (value) {
-                    "0" -> "WYKRYTO GAZ"
-                    "1" -> "Nie wykryto gazu"
+                    0, 0L, 0.0 -> "WYKRYTO GAZ"
+                    1, 1L, 1.0 -> "Nie wykryto gazu"
                     else -> value
                 }
                 "Kontaktrony" -> when (value) {
-                    "true" -> "Okno jest otwarte"
-                    "false" -> "Okno jest zamknięte"
+                    true -> "Okno jest otwarte"
+                    false -> "Okno jest zamknięte"
                     else -> value
                 }
                 "Wiatrak" -> when (value) {
-                    "true" -> "Wiatrak jest włączony"
-                    "false" -> "Wiatrak jest wyłączony"
+                    true -> "Wiatrak jest włączony"
+                    false -> "Wiatrak jest wyłączony"
                     else -> value
 
                 }
@@ -161,8 +75,8 @@ fun SensorsScreen(
                 "Kontaktrony" -> painterResource(R.drawable.outline_sensor_window_24)
                 "Ruch" -> painterResource(R.drawable.outline_directions_walk_24)
                 "Wiatrak" -> when (value) {
-                    "true" -> painterResource(R.drawable.outline_mode_fan_24)
-                    "false" -> painterResource(R.drawable.outline_mode_fan_off_24)
+                    true -> painterResource(R.drawable.outline_mode_fan_24)
+                    false -> painterResource(R.drawable.outline_mode_fan_off_24)
                     else ->  painterResource(R.drawable.outline_mode_fan_24)
                 }
                 else -> painterResource(R.drawable.outline_thermometer_24)
@@ -171,7 +85,7 @@ fun SensorsScreen(
 
             SenorsCard(
                 text = key,
-                text1 = displayValue,
+                text1 = displayValue.toString(),
                 icon = displayIcon,
             )
         }
