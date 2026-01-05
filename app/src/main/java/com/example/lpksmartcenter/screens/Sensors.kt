@@ -82,7 +82,6 @@ fun SensorsScreen(
                 else -> painterResource(R.drawable.outline_thermometer_24)
             }
 
-
             SenorsCard(
                 text = key,
                 text1 = displayValue.toString(),
