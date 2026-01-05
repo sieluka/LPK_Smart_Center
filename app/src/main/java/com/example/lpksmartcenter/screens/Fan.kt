@@ -41,7 +41,7 @@ fun FanScreen(
 
             val displayIcon = when (key) {
                 "Tryb_manualny_wiatraka" -> painterResource(R.drawable.outline_rotate_auto_24)
-                else -> painterResource(R.drawable.outline_thermometer_24)
+                else -> painterResource(R.drawable.outline_mode_fan_24)
             }
 
             DeviceCard(
