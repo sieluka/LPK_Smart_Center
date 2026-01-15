@@ -3,4 +3,23 @@
     <string name="wiatrak">Wiatrak</string>
     <string name="on">Włączony</string>
     <string name="off">Wyłączony</string>
+    <string name="czujnik_temperatury">Temperatura</string>
+    <string name="czujnik_wilgotnosci">Wilgotnosc</string>
+    <string name="czujnik_deszczu">Deszcz</string>
+    <string name="czujnik_ruchu">Ruch</string>
+    <string name="czujnik_gazu_dymu">Gaz-Dym</string>
+    <string name="czujnik_otwarcia_okna">Kontaktrony</string>
+    <string name="czujnik_wiatraka">Wiatrak</string>
+    <string name="pada_deszcz">Pada</string>
+    <string name="nie_pada_descz">Nie pada</string>
+    <string name="wykryto_ruch">Wykryto ruch</string>
+    <string name="nie_wykryto_ruchu">Nie wykryto ruchu</string>
+    <string name="wykryto_gaz">WYKRYTO GAZ</string>
+    <string name="nie_wykryto_gazu">Nie wykryto gazu</string>
+    <string name="okno_jest_otwarte">Okno jest otwarte</string>
+    <string name="okno_jest_zamkniete">Okno jest zamknięte</string>
+    <string name="wiatrak_jest_wlaczony">Wiatrak jest włączony</string>
+    <string name="wiatrak_jest_wylaczony">Wiatrak jest wyłączony</string>
+    <string name="brama">Brama</string>
+    <string name="lampa">Lampa</string>
 </resources>
