@@ -11,21 +11,20 @@ import com.google.firebase.database.ValueEventListener
 class DevicesDataBase {
     private val database: DatabaseReference =
         FirebaseDatabase.getInstance().getReference("urzadzenia")
-
-    fun readDevicesData(onDataChanged: (Map<String, Boolean>) -> Unit) {
+    fun readDevicesData(onDataChanged: (Map<String, Any>) -> Unit) {
         database.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                val devicesMap = mutableMapOf<String, Boolean>()
+                val sensorsMap = mutableMapOf<String, Any>()
 
                 snapshot.children.forEach { child ->
                     child.key?.let { key ->
-                        child.value?.let{ value ->
-                            devicesMap[key] = value as Boolean
+                        child.value?.let { value ->
+                            sensorsMap[key] = value
                         }
                     }
                 }
 
-                onDataChanged(devicesMap)
+                onDataChanged(sensorsMap)
             }
 
             override fun onCancelled(error: DatabaseError) {
