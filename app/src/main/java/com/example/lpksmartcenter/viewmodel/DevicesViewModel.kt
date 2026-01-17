@@ -9,8 +9,8 @@ import kotlinx.coroutines.flow.asStateFlow
 class DevicesViewModel : ViewModel() {
     private val devicesDataBase = DevicesDataBase()
 
-    private val _devicesData = MutableStateFlow<Map<String, Boolean>>(emptyMap())
-    val devicesData: StateFlow<Map<String, Boolean>> = _devicesData.asStateFlow()
+    private val _devicesData = MutableStateFlow<Map<String, Any>>(emptyMap())
+    val devicesData: StateFlow<Map<String, Any>> = _devicesData.asStateFlow()
 
     init {
         devicesDataBase.readDevicesData { data ->
@@ -21,4 +21,9 @@ class DevicesViewModel : ViewModel() {
     fun updateDeviceState(key: String, newState: Boolean) {
         devicesDataBase.writeDeviceState(key, newState)
     }
+
+    fun updateLampBrightness(key: String, brightness: Int) {
+        devicesDataBase.writeLampBrightness(key, brightness)
+    }
+
 }
