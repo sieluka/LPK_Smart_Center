@@ -79,10 +79,7 @@ fun DeviceCard(
     modifier: Modifier = Modifier
 ) {
     ElevatedCard(
-        colors = CardDefaults.cardColors(
-            //containerColor = MaterialTheme.colorScheme.primaryContainer,
-            //contentColor = MaterialTheme.colorScheme.onPrimaryContainer,
-        ),
+        colors = CardDefaults.cardColors(),
         elevation = CardDefaults.cardElevation(
             defaultElevation = 20.dp
         ),
@@ -112,11 +109,6 @@ fun DeviceCard(
                     modifier = Modifier
                         .fillMaxWidth()
                 )
-                /*Text(
-                    text = statusText,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                )*/
             }
             SwitchMinimalExample(
                 checked = checked,
@@ -133,6 +125,49 @@ fun FanCard(
     modifier: Modifier = Modifier,
     onClick: () -> Unit = {}
     ) {
+
+    ElevatedCard(
+        colors = CardDefaults.cardColors(),
+        elevation = CardDefaults.cardElevation(defaultElevation = 20.dp),
+        modifier = modifier
+            .size(width = 350.dp, height = 80.dp)
+            .clickable { onClick() }
+    ) {
+        Row(
+            modifier = Modifier
+                .fillMaxSize(),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(24.dp)
+        ) {
+            Icon(
+                painter = icon,
+                contentDescription = null,
+                modifier = Modifier
+                    .padding(start = 16.dp)
+            )
+            Column(
+                verticalArrangement = Arrangement.Center,
+                modifier = Modifier
+                    .weight(1f)
+            ) {
+                Text(
+                    text = text,
+                    fontSize = 18.sp,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                )
+            }
+        }
+    }
+}
+
+@Composable
+fun LightCard(
+    text: String,
+    icon: Painter,
+    modifier: Modifier = Modifier,
+    onClick: () -> Unit = {},
+) {
 
     ElevatedCard(
         colors = CardDefaults.cardColors(),
@@ -196,11 +231,22 @@ fun DeviceScreenPreview() {
 
 @Preview(showBackground = true)
 @Composable
-fun FanScreenPreeview(){
+fun FanScreenPreview(){
     LPKSmartCenterTheme {
         FanCard(
             text = "ddd",
             icon = painterResource(R.drawable.outline_mode_fan_24)
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun LightScreenPreview(){
+    LPKSmartCenterTheme {
+        LightCard(
+            text = "xxx",
+            icon = painterResource(R.drawable.outline_light_24)
         )
     }
 }
