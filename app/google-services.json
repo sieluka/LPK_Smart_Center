@@ -13,7 +13,20 @@
           "package_name": "com.example.lpksmartcenter"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "969042232122-ed9g56vmvdbf9gvi6pk410dubb5rdfsl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.lpksmartcenter",
+            "certificate_hash": "49aa5ad364c73fcc6852a1e81cb465059cf212e0"
+          }
+        },
+        {
+          "client_id": "969042232122-krgt97psbr3ebbe8rfluj5u8djmrgjd6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyA6rblzZ8uQ3ofuwIv-BvidZOPB2vx5n40"
@@ -21,7 +34,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "969042232122-krgt97psbr3ebbe8rfluj5u8djmrgjd6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }
