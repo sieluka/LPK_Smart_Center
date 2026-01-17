@@ -10,7 +10,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.lpksmartcenter.R
-import com.example.lpksmartcenter.ui.theme.BasicSlider
+import com.example.lpksmartcenter.ui.theme.LightSlider
 import com.example.lpksmartcenter.viewmodel.DevicesViewModel
 
 
@@ -27,7 +27,7 @@ fun LightScreen(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
     ){
-        BasicSlider(
+        LightSlider(
             viewModel = viewModel,
             key = device
         )
