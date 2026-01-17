@@ -11,6 +11,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -18,6 +19,7 @@ import com.example.lpksmartcenter.R
 import com.example.lpksmartcenter.ui.theme.DeviceCard
 import com.example.lpksmartcenter.ui.theme.FanCard
 import com.example.lpksmartcenter.ui.theme.LPKSmartCenterTheme
+import com.example.lpksmartcenter.ui.theme.LightCard
 import com.example.lpksmartcenter.viewmodel.DevicesViewModel
 import kotlin.collections.component1
 import kotlin.collections.component2
@@ -26,12 +28,13 @@ import kotlin.collections.component2
 fun DevicesScreen(
     modifier: Modifier = Modifier,
     onNavigateToFan: () -> Unit = {},
+    onNavigateToLight: () -> Unit = {},
     viewModel: DevicesViewModel = viewModel()
 ) {
 
     val devicesData by viewModel.devicesData.collectAsState()
     val filteredDevices = devicesData.filter { (key, _) ->
-        key == "Brama"
+        key == stringResource(R.string.brama)
     }
 
     LazyColumn(
@@ -45,14 +48,15 @@ fun DevicesScreen(
         items(filteredDevices.entries.toList()) { (key, isOn) ->
 
             val displayIcon = when (key) {
-                "Brama" -> painterResource(R.drawable.outline_gate_24)
+                stringResource(R.string.brama) -> painterResource(R.drawable.outline_gate_24)
+                stringResource(R.string.lampa) -> painterResource(R.drawable.outline_light_24)
                 else -> painterResource(R.drawable.outline_thermometer_24)
             }
 
             DeviceCard(
                 text = key,
                 icon = displayIcon,
-                checked = isOn,
+                checked = isOn as? Boolean ?: false,
                 onCheckedChange = { newState ->
                     viewModel.updateDeviceState(key, newState)
                 }
@@ -61,9 +65,17 @@ fun DevicesScreen(
 
         item {
             FanCard(
-                text = "Wiatrak",
+                text = stringResource(R.string.wiatrak),
                 icon = painterResource(R.drawable.outline_mode_fan_24),
                 onClick = onNavigateToFan
+            )
+        }
+
+        item {
+            LightCard(
+                text = stringResource(R.string.lampa),
+                icon = painterResource(R.drawable.outline_light_24),
+                onClick = onNavigateToLight
             )
         }
     }
@@ -72,8 +84,8 @@ fun DevicesScreen(
 
 @Preview(showBackground = true)
 @Composable
-fun AlbumScreenPreview() {
-    LPKSmartCenterTheme() {
+fun DevicesScreenPreview() {
+    LPKSmartCenterTheme {
         DevicesScreen()
     }
 }
