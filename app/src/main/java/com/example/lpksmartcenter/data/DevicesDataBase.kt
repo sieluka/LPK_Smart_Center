@@ -40,6 +40,11 @@ class DevicesDataBase {
             .addOnFailureListener { onComplete(false) }
     }
 
+    fun writeLampBrightness(key: String, brightness: Int, onComplete: (Boolean) -> Unit = {}) {
+        database.child(key).setValue(brightness.toLong())
+            .addOnSuccessListener { onComplete(true) }
+            .addOnFailureListener { onComplete(false) }
+    }
 }
 
 
