@@ -11,6 +11,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -27,7 +28,7 @@ fun FanScreen(
 ){
     val devicesData by viewModel.devicesData.collectAsState()
     val filteredDevices = devicesData.filter { (key, _) ->
-        key == "Tryb_manualny_wiatraka" || key == "wiatrak_on_manual"
+        key != stringResource(R.string.brama) && key != stringResource(R.string.lampa)
     }
 
     LazyColumn(
@@ -40,14 +41,14 @@ fun FanScreen(
         items(filteredDevices.entries.toList()) { (key, isOn) ->
 
             val displayIcon = when (key) {
-                "Tryb_manualny_wiatraka" -> painterResource(R.drawable.outline_rotate_auto_24)
+                stringResource(R.string.tryb_auto_wiatraka) -> painterResource(R.drawable.outline_rotate_auto_24)
                 else -> painterResource(R.drawable.outline_mode_fan_24)
             }
 
             DeviceCard(
                 text = key,
                 icon = displayIcon,
-                checked = isOn,
+                checked = isOn as? Boolean ?: false,
                 onCheckedChange = { newState ->
                     viewModel.updateDeviceState(key, newState)
                 }
