@@ -22,4 +22,6 @@
     <string name="wiatrak_jest_wylaczony">Wiatrak jest wyłączony</string>
     <string name="brama">Brama</string>
     <string name="lampa">Lampa</string>
+    <string name="tryb_auto_wiatraka">Wiatrak_Auto</string>
+    <string name="jasnosc_swiatla">"Jasność światła: "</string>
 </resources>
