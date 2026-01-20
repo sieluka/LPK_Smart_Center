@@ -2,9 +2,7 @@ package com.example.lpksmartcenter.ui.theme
 
 
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Slider
 import androidx.compose.material3.Text
@@ -13,6 +11,8 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
@@ -39,6 +39,10 @@ fun LightSlider(
         )
     }
 
+    var fontSize by remember { mutableStateOf(32.sp) } // Początkowa wielkość
+    val percentage = ((sliderPosition/255f)*100).toInt()
+    val displayText = "${stringResource(R.string.jasnosc_swiatla)}$percentage%"
+
     LaunchedEffect(devicesData[key]) {
         val newValue = (devicesData[key] as? Long)?.toFloat()
         if (newValue != null) {
@@ -51,17 +55,25 @@ fun LightSlider(
             .padding(24.dp)
     ) {
         Text(
-            text = stringResource(R.string.jasnosc_swiatla) + sliderPosition.toInt().toString(),
+            text = displayText,
             modifier = Modifier
                 .fillMaxWidth(),
             textAlign = TextAlign.Center,
-            fontSize = 32.sp,
-            fontWeight = FontWeight.Bold
+            fontSize = fontSize,
+            fontWeight = FontWeight.Bold,
+            maxLines = 1,
+            softWrap = false,
+            onTextLayout = { textLayoutResult ->
+                // Jeśli tekst wystaje poza szerokość, zmniejsz czcionkę
+                if (textLayoutResult.didOverflowWidth) {
+                    fontSize *= 0.9f
+                }
+            }
         )
 
-        Spacer(modifier = Modifier.height(24.dp))
-
         Slider(
+            modifier = Modifier
+                .padding(24.dp),
             value = sliderPosition,
             onValueChange = { newValue ->
                 sliderPosition = newValue
