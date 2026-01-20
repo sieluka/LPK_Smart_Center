@@ -40,9 +40,9 @@ fun DevicesScreen(
     LazyColumn(
         modifier = modifier
             .fillMaxSize(),
-        contentPadding = PaddingValues(50.dp),
+        contentPadding = PaddingValues(top = 50.dp, start = 32.dp, end = 32.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.spacedBy(16.dp),
+        verticalArrangement = Arrangement.spacedBy(24.dp),
     ) {
 
         items(filteredDevices.entries.toList()) { (key, isOn) ->
