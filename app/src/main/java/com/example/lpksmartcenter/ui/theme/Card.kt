@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.CardDefaults
@@ -36,7 +37,10 @@ fun SenorsCard(
             defaultElevation = 20.dp
         ),
         modifier = modifier
-            .size(width = 350.dp, height = 80.dp)
+            //.size(width = 310.dp, height = 80.dp),
+            .fillMaxWidth()
+            .height(80.dp)
+
     ) {
         Row (
             modifier = Modifier
@@ -84,7 +88,9 @@ fun DeviceCard(
             defaultElevation = 20.dp
         ),
         modifier = modifier
-            .size(width = 350.dp, height = 80.dp)
+            //.size(width = 350.dp, height = 80.dp)
+            .fillMaxWidth()
+            .height(80.dp)
     ) {
         Row(
             modifier = Modifier
@@ -107,7 +113,7 @@ fun DeviceCard(
                     text = text,
                     fontSize = 18.sp,
                     modifier = Modifier
-                        .fillMaxWidth()
+                        .fillMaxWidth(),
                 )
             }
             SwitchMinimalExample(
@@ -154,7 +160,7 @@ fun FanCard(
                     text = text,
                     fontSize = 18.sp,
                     modifier = Modifier
-                        .fillMaxWidth()
+                        .fillMaxWidth(),
                 )
             }
         }
