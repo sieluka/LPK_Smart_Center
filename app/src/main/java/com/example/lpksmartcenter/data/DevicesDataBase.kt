@@ -14,17 +14,17 @@ class DevicesDataBase {
     fun readDevicesData(onDataChanged: (Map<String, Any>) -> Unit) {
         database.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                val sensorsMap = mutableMapOf<String, Any>()
+                val devicesMap = mutableMapOf<String, Any>()
 
                 snapshot.children.forEach { child ->
                     child.key?.let { key ->
                         child.value?.let { value ->
-                            sensorsMap[key] = value
+                            devicesMap[key] = value
                         }
                     }
                 }
 
-                onDataChanged(sensorsMap)
+                onDataChanged(devicesMap)
             }
 
             override fun onCancelled(error: DatabaseError) {
