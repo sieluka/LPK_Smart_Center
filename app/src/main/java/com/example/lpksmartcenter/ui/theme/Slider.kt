@@ -79,7 +79,7 @@ fun LightSlider(
                 sliderPosition = newValue
             },
             onValueChangeFinished = {
-                viewModel.updateLampBrightness(key, sliderPosition.toInt())
+                viewModel.updateLampBrightness(key, sliderPosition)
             },
             valueRange = 0f..255f
         )
