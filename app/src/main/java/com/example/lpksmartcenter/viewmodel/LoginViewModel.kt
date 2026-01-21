@@ -3,6 +3,7 @@ package com.example.lpksmartcenter.viewmodel
 import android.util.Patterns
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.lpksmartcenter.data.LoginUiState
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.FirebaseAuthInvalidUserException
@@ -14,16 +15,6 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
-
-data class LoginUiState(
-    val email: String = "",
-    val password: String = "",
-    val isLoading: Boolean = false,
-    val errorMessage: String? = null,
-    val isLoginSuccessful: Boolean = false,
-    val emailError: String? = null,
-    val passwordError: String? = null
-)
 
 class LoginViewModel(
     private val auth: FirebaseAuth = FirebaseAuth.getInstance()
