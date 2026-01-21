@@ -22,7 +22,7 @@ class DevicesViewModel : ViewModel() {
         devicesDataBase.writeDeviceState(key, newState)
     }
 
-    fun updateLampBrightness(key: String, brightness: Int) {
+    fun updateLampBrightness(key: String, brightness: Float) {
         devicesDataBase.writeLampBrightness(key, brightness)
     }
 
