@@ -22,6 +22,7 @@ import kotlinx.coroutines.launch
 
 @Composable
 fun LoginScreen(
+    modifier: Modifier = Modifier,
     onLoginSuccess: () -> Unit,
     viewModel: LoginViewModel = viewModel()
 ) {
