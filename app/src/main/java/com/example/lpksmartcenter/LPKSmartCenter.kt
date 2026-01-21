@@ -61,13 +61,20 @@ fun LPKSmartCenterNavigation(auth: FirebaseAuth) {
         startDestination = startDestination
     ) {
         composable(Screen.Login.route) {
-            LoginScreen(
-                onLoginSuccess = {
-                    navController.navigate(Screen.Main.route) {
-                        popUpTo(Screen.Login.route) { inclusive = true }
+            Scaffold(
+                modifier = Modifier.fillMaxSize(),
+                containerColor = MaterialTheme.colorScheme.background,
+                contentColor = MaterialTheme.colorScheme.onBackground
+            ) { innerPadding ->
+                LoginScreen(
+                    modifier = Modifier.padding(innerPadding),
+                    onLoginSuccess = {
+                        navController.navigate(Screen.Main.route) {
+                            popUpTo(Screen.Login.route) { inclusive = true }
+                        }
                     }
-                }
-            )
+                )
+            }
         }
 
         composable(Screen.Main.route) {
