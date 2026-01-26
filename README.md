@@ -61,7 +61,6 @@ Aplikacja wymaga następujących uprawnień:
 
 ## Zrzuty ekranu
 
-<!-- Dodaj tutaj zrzuty ekranu swojej aplikacji -->
 <table>
   <thead>
     <tr>
@@ -76,25 +75,24 @@ Aplikacja wymaga następujących uprawnień:
     </tr>
     <tr>
       <td>Ekran logowania</td>
-      <td><img src="#" alt="ekran_logowania" width="200"></td>
+      <td><img src= "https://github.com/user-attachments/assets/59d4bb4a-5b3b-410b-8392-9064192a26f9" alt=E_Log" width="200"></td>
     </tr>
     <tr>
       <td>Błąd logowania</td>
-      <td><img src="#" alt="ekran_logowania" width="200"></td>
+      <td><img src="#" alt="blad_logowania" width="200"></td>
     </tr>
     <tr>
       <td>Panel czujników</td>
-      <td><img src="#" alt="panel_urzadzen" width="200"></td>
+      <td><img src="https://github.com/user-attachments/assets/18416f55-1fbf-440f-898c-db972921ea3b" alt="E_czuj" width="200"></td>
     </tr>
     <tr>
       <td>Panel urządzeń</td>
-      <td><img src="#" alt="sterowanie_urzadzeniem" width="200"></td>
+      <td><img src="https://github.com/user-attachments/assets/99ccae4f-34eb-43ad-9364-62f8c0221ec4" alt="E_urz" width="200"></td>
     </tr>
     <tr>
       <td>Profil użytkownika</td>
-      <td><img src="#" alt="sterowanie_urzadzeniem" width="200"></td>
+      <td><img src="https://github.com/user-attachments/assets/8fcb6cdb-562d-4f61-82e0-01bea2487908" alt="E_kont" width="200></td>
     </tr>
-    <!-- Dodaj więcej zrzutów ekranu według potrzeb -->
   </tbody>
 </table>
 
@@ -102,6 +100,6 @@ Aplikacja wymaga następujących uprawnień:
 
 ## Autor
 
-- Łukasz Sieradzki
+Łukasz Sieradzki
 
 ---
