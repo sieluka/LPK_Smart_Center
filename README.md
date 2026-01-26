@@ -91,7 +91,7 @@ Aplikacja wymaga następujących uprawnień:
     </tr>
     <tr>
       <td>Profil użytkownika</td>
-      <td><img src="https://github.com/user-attachments/assets/8fcb6cdb-562d-4f61-82e0-01bea2487908" alt="E_kont" width="200></td>
+      <td><img src="https://github.com/user-attachments/assets/8fcb6cdb-562d-4f61-82e0-01bea2487908" alt="E_kont" width="200"></td>
     </tr>
   </tbody>
 </table>
