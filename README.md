@@ -61,6 +61,7 @@ Aplikacja wymaga następujących uprawnień:
 
 ## Zrzuty ekranu
 
+<h2>Zrzuty ekranu</h2>
 <table>
   <thead>
     <tr>
@@ -103,3 +104,4 @@ Aplikacja wymaga następujących uprawnień:
 Łukasz Sieradzki
 
 ---
+
