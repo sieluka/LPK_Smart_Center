@@ -61,7 +61,6 @@ Aplikacja wymaga następujących uprawnień:
 
 ## Zrzuty ekranu
 
-<h2>Zrzuty ekranu</h2>
 <table>
   <thead>
     <tr>
@@ -72,7 +71,7 @@ Aplikacja wymaga następujących uprawnień:
   <tbody>
     <tr>
       <td>Ekran ładowania</td>
-      <td><img src="#" alt="ekran_ladowania" width="200"></td>
+      <td><img src="https://github.com/user-attachments/assets/18416f55-1fbf-440f-898c-db972921ea3b" alt="ekran_ladowania" width="200"></td>
     </tr>
     <tr>
       <td>Ekran logowania</td>
@@ -80,7 +79,7 @@ Aplikacja wymaga następujących uprawnień:
     </tr>
     <tr>
       <td>Błąd logowania</td>
-      <td><img src="#" alt="blad_logowania" width="200"></td>
+      <td><img src="https://github.com/user-attachments/assets/18416f55-1fbf-440f-898c-db972921ea3b" alt="blad_logowania" width="200"></td>
     </tr>
     <tr>
       <td>Panel czujników</td>
