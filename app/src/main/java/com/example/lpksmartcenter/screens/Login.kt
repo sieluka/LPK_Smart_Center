@@ -1,12 +1,14 @@
 package com.example.lpksmartcenter.screens
 
 import android.widget.Toast
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
@@ -109,6 +111,21 @@ fun LoginScreen(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
+
+        Surface(
+            modifier = Modifier.size(120.dp),
+            shape = MaterialTheme.shapes.medium,
+            color = MaterialTheme.colorScheme.primary
+        ) {
+            Image(
+                painter = painterResource(id = R.drawable.ic_launcher_1_foreground),
+                contentDescription = "Logo aplikacji",
+                modifier = Modifier.padding(16.dp)
+            )
+        }
+
+        Spacer(modifier = Modifier.height(16.dp))
+
         Text("LPK Smart Center", style = MaterialTheme.typography.headlineLarge)
 
         Spacer(modifier = Modifier.height(32.dp))
