@@ -2,6 +2,8 @@ package com.example.lpksmartcenter.screens
 
 import android.widget.Toast
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material3.*
@@ -59,11 +61,14 @@ fun ProfileScreen(
         )
     }
 
+    val scrollState = rememberScrollState()
+
     Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
         Column(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(innerPadding)
+                .verticalScroll(scrollState)
                 .padding(16.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
@@ -98,10 +103,6 @@ fun ProfileScreen(
                     HorizontalDivider(modifier = Modifier.padding(vertical = 8.dp))
 
                     ProfileInfoRow(label = "Imię i Nazwisko", value = uiState.displayName ?: "Nie podano")
-
-                    //Divider(modifier = Modifier.padding(vertical = 8.dp))
-
-                    //ProfileInfoRow(label = "UID", value = uiState.uid)
 
                     HorizontalDivider(modifier = Modifier.padding(vertical = 8.dp))
 
