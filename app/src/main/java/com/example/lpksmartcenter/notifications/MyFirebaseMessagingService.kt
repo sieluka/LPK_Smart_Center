@@ -64,8 +64,6 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
 
     private fun sendTokenToServer(token: String) {
         Log.d(TAG, "Token should be sent to server: $token")
-        // Opcjonalnie: zapisz token w Firebase Database lub Firestore
-        // aby móc wysyłać powiadomienia do konkretnego urządzenia
     }
 
     companion object {
