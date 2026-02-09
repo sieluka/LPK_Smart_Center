@@ -64,7 +64,6 @@ fun LightSlider(
             maxLines = 1,
             softWrap = false,
             onTextLayout = { textLayoutResult ->
-                // Jeśli tekst wystaje poza szerokość, zmniejsz czcionkę
                 if (textLayoutResult.didOverflowWidth) {
                     fontSize *= 0.9f
                 }
