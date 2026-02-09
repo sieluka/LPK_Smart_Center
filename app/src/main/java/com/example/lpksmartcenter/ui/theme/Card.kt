@@ -37,7 +37,6 @@ fun SenorsCard(
             defaultElevation = 20.dp
         ),
         modifier = modifier
-            //.size(width = 310.dp, height = 80.dp),
             .fillMaxWidth()
             .height(80.dp)
 
@@ -88,7 +87,6 @@ fun DeviceCard(
             defaultElevation = 20.dp
         ),
         modifier = modifier
-            //.size(width = 350.dp, height = 80.dp)
             .fillMaxWidth()
             .height(80.dp)
     ) {
@@ -136,7 +134,8 @@ fun FanCard(
         colors = CardDefaults.cardColors(),
         elevation = CardDefaults.cardElevation(defaultElevation = 20.dp),
         modifier = modifier
-            .size(width = 350.dp, height = 80.dp)
+            .fillMaxWidth()
+            .height(80.dp)
             .clickable { onClick() }
     ) {
         Row(
@@ -179,7 +178,8 @@ fun LightCard(
         colors = CardDefaults.cardColors(),
         elevation = CardDefaults.cardElevation(defaultElevation = 20.dp),
         modifier = modifier
-            .size(width = 350.dp, height = 80.dp)
+            .fillMaxWidth()
+            .height(80.dp)
             .clickable { onClick() }
     ) {
         Row(
