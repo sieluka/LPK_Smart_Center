@@ -90,7 +90,7 @@ Aplikacja wymaga następujących uprawnień:
       <td><img src="https://github.com/user-attachments/assets/99ccae4f-34eb-43ad-9364-62f8c0221ec4" alt="E_urz" width="200"></td>
     </tr>
     <tr>
-      <td>Profil użytkownika</td>
+      <td>Panel profilu użytkownika</td>
       <td><img src="https://github.com/user-attachments/assets/8fcb6cdb-562d-4f61-82e0-01bea2487908" alt="E_kont" width="200"></td>
     </tr>
   </tbody>
