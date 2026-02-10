@@ -71,15 +71,15 @@ Aplikacja wymaga następujących uprawnień:
   <tbody>
     <tr>
       <td>Ekran ładowania</td>
-      <td><img src="https://github.com/user-attachments/assets/18416f55-1fbf-440f-898c-db972921ea3b" alt="ekran_ladowania" width="200"></td>
+      <td><img src="https://github.com/user-attachments/assets/4279ad37-54d1-402f-9c41-c02205633fe2" alt="E_lad" width="200"></td>
     </tr>
     <tr>
       <td>Ekran logowania</td>
-      <td><img src= "https://github.com/user-attachments/assets/59d4bb4a-5b3b-410b-8392-9064192a26f9" alt=E_Log" width="200"></td>
+      <td><img src= "https://github.com/user-attachments/assets/59d4bb4a-5b3b-410b-8392-9064192a26f9" alt="E_Log" width="200"></td>
     </tr>
     <tr>
       <td>Błąd logowania</td>
-      <td><img src="https://github.com/user-attachments/assets/18416f55-1fbf-440f-898c-db972921ea3b" alt="blad_logowania" width="200"></td>
+      <td><img src="https://github.com/user-attachments/assets/e79b2e7f-aaa3-4f01-a52b-b85ecf2e5fdd" alt="blad_logowania" width="200"></td>
     </tr>
     <tr>
       <td>Panel czujników</td>
